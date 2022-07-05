@@ -52,3 +52,4 @@ let g:NERDCreateDefaultMappings = 1
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+let g:neovide_transparency=0.8
