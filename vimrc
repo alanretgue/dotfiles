@@ -6,10 +6,8 @@ call vundle#begin()
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'vim-airline/vim-airline'
   Plugin 'preservim/nerdtree'
-  Plugin 'chrisbra/Colorizer'
   Plugin 'gmarik/Vundle.vim'
   Plugin 'frazrepo/vim-rainbow'
-  Plugin 'preservim/nerdcommenter'
 call vundle#end()
 
 let g:airline_powerline_fonts = 1

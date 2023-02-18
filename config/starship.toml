@@ -1,0 +1,90 @@
+format = """
+[░▒▓](#a3aed2)\
+$battery\
+[](bg:#4c5786 fg:#656f9d)\
+$directory\
+[](fg:#4c5786 bg:#394260)\
+$git_branch\
+$git_commit\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#212736 bg:#1d2230)\
+$time\
+$character\
+"""
+
+[battery]
+full_symbol = '🔋'
+charging_symbol = '⚡️'
+discharging_symbol = '🔋'
+format = '[ $percentage $symbol]($style)'
+
+[[battery.display]]
+threshold = 10
+style = 'bg:#bb0000'
+
+[[battery.display]]
+threshold = 100
+style = 'bg:#656f9d'
+
+[directory]
+style = "fg:#e3e5e5 bg:#4c5786"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "📁 "
+"Downloads" = "↓ "
+"Music" = "♫ "
+"Pictures" = " "
+
+[character]
+success_symbol = '''[[ ](fg:#1d2230 bg:#1a1924)[\(｡◕‿‿◕｡\)](fg:#769ff0 bg:#191723)[ ](fg:#191723)
+❯](bold green)'''
+error_symbol = '''[[[ ](fg:#1d2230 bg:#bb0000)\(╥﹏╥\)](fg:#aaaaaa bg:#bb0000)[ ](fg:#bb0000)
+✗](bold red)'''
+
+[git_branch]
+symbol = "⌥ "
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+# 
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '
+
+[git_status]
+style = "bg:#394260 fg:#00ff00"
+format = '[[($all_status$ahead_behind )](fg:#00ff00 bg:#394260)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[golang]
+symbol = "ﳑ"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
