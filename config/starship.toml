@@ -1,35 +1,37 @@
 format = """
-[░▒▓](#a3aed2)\
 $battery\
-[](bg:#4c5786 fg:#656f9d)\
+[](bg:#4c5786 fg:#000000)\
 $directory\
-[](fg:#4c5786 bg:#394260)\
+[](fg:#4c5786 bg:#394260)\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:#394260 bg:#212736)\
 $nodejs\
 $rust\
 $golang\
 $php\
-[](fg:#212736 bg:#1d2230)\
-$time\
+$c\
+[](fg:#212736 bg:#000000)\
 $character\
 """
+
+# $time\
+# [](fg:#2a2934 bg:#000000)\
 
 [battery]
 full_symbol = '🔋'
 charging_symbol = '⚡️'
 discharging_symbol = '🔋'
-format = '[ $percentage $symbol]($style)'
+format = '[[](fg:$style)$percentage $symbol[](fg:$style)](bg:$style)'
 
 [[battery.display]]
 threshold = 10
-style = 'bg:#bb0000'
+style = '#bb0000'
 
 [[battery.display]]
 threshold = 100
-style = 'bg:#656f9d'
+style = '#656f9d'
 
 [directory]
 style = "fg:#e3e5e5 bg:#4c5786"
@@ -44,9 +46,9 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [character]
-success_symbol = '''[[ ](fg:#1d2230 bg:#1a1924)[\(｡◕‿‿◕｡\)](fg:#769ff0 bg:#191723)[ ](fg:#191723)
+success_symbol = '''[[ ](fg:#000000 bg:#2a2934)[\(｡◕‿‿◕｡\)](fg:#769ff0 bg:#2a2934)[ ](fg:#2a2934)
 ❯](bold green)'''
-error_symbol = '''[[[ ](fg:#1d2230 bg:#bb0000)\(╥﹏╥\)](fg:#aaaaaa bg:#bb0000)[ ](fg:#bb0000)
+error_symbol = '''[[[ ](fg:#000000 bg:#bb0000)\(╥﹏╥\)](fg:#aaaaaa bg:#bb0000)[ ](fg:#bb0000)
 ✗](bold red)'''
 
 [git_branch]
@@ -69,9 +71,8 @@ style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
-symbol = ""
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol($version(-name)) ](fg:#769ff0 bg:#212736)]($style)'
 
 [golang]
 symbol = "ﳑ"
@@ -83,8 +84,13 @@ symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
+[c]
+detect_files = ["Makefile"]
+style = "fg:#769ff0 bg:#212736"
+format = '[ $symbol($version(-$name)) ]($style)'
+
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+style = "bg:#2a2934"
+format = '[[ $time ](fg:#a0a9cb bg:#2a2934)]($style)'
