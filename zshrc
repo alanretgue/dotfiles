@@ -109,4 +109,4 @@ eval "$(starship init zsh)"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
 ZSH_AUTOSUGGEST_STRATEGY="match_prev_cmd"
 
-./.starting_script.sh
+# ./.starting_script.sh
