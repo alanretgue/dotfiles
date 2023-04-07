@@ -108,7 +108,8 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' },
         keys = {
             { "<space>f", "<cmd>Telescope find_files<cr>", desc = "Find file with Telescope" },
-            { "<space>r", "<cmd>Telescope lsp_references<cr>", desc = "Find references with Telescope" },
+            { "<space>F", "<cmd>Telescope live_grep<cr>", desc = "Grep with Telescope" },
+            { "<space>r", "<cmd>Telescope lsp_definitions<cr>", desc = "Find Definition with Telescope" },
         },
     },
     {
@@ -116,7 +117,7 @@ return {
         lazy = false,
         dependencies = 'nvim-tree/nvim-web-devicons',
         keys = {
-            { "<space>t", desc = "Tab" },
+            { "<space>t", desc = "Tab Commands" },
             { "<space>t+", "<cmd>tabnew<cr>", desc = "New tab" },
             { '<space>tp', '<Cmd>BufferPrevious<CR>', desc= "Go to Previous Tab" };
             { '<space>tn', '<Cmd>BufferNext<CR>', desc= "Go to Next Tab" };
@@ -189,8 +190,9 @@ return {
         config = true,
         keys = {
             { "<space><enter>", '<cmd>:ToggleTerm size=40 direction=float<cr>', desc = "Spawn floating Terminal" },
-            { "<space>Tv", '<cmd>:ToggleTerm size=40 direction=vertical<cr>', desc = "Spawn floating Terminal" },
-            { "<space>Th", '<cmd>:ToggleTerm size=20 direction=horizontal<cr>', desc = "Spawn floating Terminal" },
+            { "<space>T", desc = "Spawn new Terminal" },
+            { "<space>Tv", '<cmd>:ToggleTerm size=40 direction=vertical<cr>', desc = "Spawn vertical Terminal" },
+            { "<space>Th", '<cmd>:ToggleTerm size=20 direction=horizontal<cr>', desc = "Spawn horizontal Terminal" },
         },
         config = function()
             require("toggleterm").setup {
@@ -205,10 +207,6 @@ return {
         'folke/todo-comments.nvim',
         lazy = true,
         dependencies = { 'nvim-lua/plenary.nvim' },
-        keys = {
-            { "<space>f", "<cmd>Telescope find_files<cr>", desc = "Find file with Telescope" },
-            -- { "<space>r", "<cmd>Telescope lsp_references<cr>", desc = "Find references with Telescope" },
-        },
         config = function()
             require("todo-comments").setup {
                 -- your configuration comes here
