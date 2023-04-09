@@ -40,8 +40,45 @@ return {
 
             -- (Optional) Configure lua language server for neovim
             lsp.nvim_workspace()
+            -- vim.diagnostic.show()
 
             lsp.setup()
+        end,
+    },
+    {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup()
+            vim.diagnostic.config({
+                virtual_text = false,
+            })
+        end,
+        keys = {
+            { "<space>Ds", "<cmd>lua require('lsp_lines').toggle()<cr>" , desc = "Toggle Diagnostic" },
+        },
+    },
+    {
+        "folke/trouble.nvim",
+        lazy=false,
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end,
+        keys = {
+            { "<space>Dl", "<cmd>TroubleToggle document_diagnostics<cr>" , desc = "Toggle Diagnostic" },
+            -- { "<space>Dq", "<cmd>TroubleToggle quickfix<cr>" , desc = "Toggle Quickfix" },
+            -- { "<space>Dl", "<cmd>TroubleToggle<cr>" , desc = "Toggle Quickfix" },
+        },
+    },
+    {
+        'iamcco/markdown-preview.nvim',
+        lazy=false,
+        config = function()
+            vim.fn["mkdp#util#install"]()
         end,
     },
     {
@@ -59,6 +96,12 @@ return {
                     additional_vim_regex_highlighting = false,
                 },
             }
+        end,
+    },
+    {
+        'sakhnik/nvim-gdb',
+        config = function()
+            vim.cmd('abbreviate gdb GdbStart gdb')
         end,
     },
     {
