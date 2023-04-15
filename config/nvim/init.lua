@@ -26,6 +26,12 @@ vim.opt.cursorline = true
 
 vim.opt.listchars = {eol = '$', tab = '▸ ', trail = '·'}
 
+if vim.g.neovide then
+    vim.g.neovide_transparency = 0.95
+    vim.g.transparency = 0.95
+    vim.cmd(":cd C:\\\\Users\\alanr\\Documents\\Gistre")
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
