@@ -54,7 +54,8 @@ return {
             })
         end,
         keys = {
-            { "<space>Ds", "<cmd>lua require('lsp_lines').toggle()<cr>" , desc = "Toggle Diagnostic" },
+            { "<space>D", desc = "LSP Diagnostic" },
+            { "<space>Ds", "<cmd>lua require('lsp_lines').toggle()<cr>" , desc = "Toggle Horizontal Console Diagnostic" },
         },
     },
     {
@@ -69,7 +70,7 @@ return {
             }
         end,
         keys = {
-            { "<space>Dl", "<cmd>TroubleToggle document_diagnostics<cr>" , desc = "Toggle Diagnostic" },
+            { "<space>Dl", "<cmd>TroubleToggle document_diagnostics<cr>" , desc = "Toggle Infile Diagnostic" },
             -- { "<space>Dq", "<cmd>TroubleToggle quickfix<cr>" , desc = "Toggle Quickfix" },
             -- { "<space>Dl", "<cmd>TroubleToggle<cr>" , desc = "Toggle Quickfix" },
         },
@@ -210,27 +211,35 @@ return {
                 },
             }
         end,
-        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+        dependencies = {{'nvim-tree/nvim-web-devicons'}}
     },
     {
         'nvim-lua/plenary.nvim',
     },
-    {
-        'ThePrimeagen/harpoon',
-        keys = {
-            { "<space>h", desc = "Harpoon" },
-            { "<space>h+", '<cmd>lua require("harpoon.mark").add_file()<cr>', desc = "Add file to Harpoon" },
-            { "<space>ha", '<cmd>lua require("harpoon.mark").add_file()<cr>', desc = "Add file to Harpoon" },
-            { "<space>hl", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', desc = "List files to Harpoon" },
-            { "<space>hn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', desc = "Next file to Harpoon" },
-            { "<space>hp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', desc = "Prev file to Harpoon" },
-            { "<space>ht", '<cmd>lua require("harpoon.term").gotoTerminal(1)<cr>', desc = "Prev file to Harpoon" },
-        },
-    },
+    -- {
+    --     'ThePrimeagen/harpoon',
+    --     lazy = false,
+    --     config = function()
+    --       require('harpoon').setup {
+    --           menu = {
+    --             width = vim.api.nvim_win_get_width(0) - 4,
+    --           }
+    --         }
+    --     end,
+    --     dependencies = {'nvim-lua/plenary.nvim'},
+    --     keys = {
+    --         { "<space>h", desc = "Harpoon" },
+    --         { "<space>h+", '<cmd>lua require("harpoon.mark").add_file()<cr>', desc = "Add file to Harpoon" },
+    --         { "<space>ha", '<cmd>lua require("harpoon.mark").add_file()<cr>', desc = "Add file to Harpoon" },
+    --         { "<space>hl", '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', desc = "List files to Harpoon" },
+    --         { "<space>hn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', desc = "Next file to Harpoon" },
+    --         { "<space>hp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', desc = "Prev file to Harpoon" },
+    --         { "<space>ht", '<cmd>lua require("harpoon.term").gotoTerminal(1)<cr>', desc = "Prev file to Harpoon" },
+    --     },
+    -- },
     {
         'akinsho/toggleterm.nvim',
         version = "*",
-        config = true,
         keys = {
             { "<space><enter>", '<cmd>:ToggleTerm size=40 direction=float<cr>', desc = "Spawn floating Terminal" },
             { "<space>T", desc = "Spawn new Terminal" },
@@ -259,8 +268,8 @@ return {
         end,
         keys = {
             { "<space>s", desc = "TODO Search" },
-            { "<space>sq", "<cmd>TodoQuickFix<cr>", desc = "TODO Quick Fix" },
-            { "<space>sf", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "TODO Quick Fix" },
+            { "<space>sq", "<cmd>TodoQuickFix<cr>", desc = "Search for TodoQuickFix" },
+            { "<space>sf", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Search for TODO and FIX" },
         },
     },
 }

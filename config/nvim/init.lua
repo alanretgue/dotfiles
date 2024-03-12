@@ -1,30 +1,32 @@
 local api = vim.api
+local opt = vim.opt
 local map = api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.opt.nu = true
-vim.opt.autoindent = true
-vim.opt.expandtab = true
+opt.nu = true
+opt.autoindent = true
+opt.expandtab = true
 
-vim.opt.shiftwidth = 4
-vim.opt.smartindent = true
-vim.opt.smarttab = true
-vim.opt.softtabstop = 4
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.smarttab = true
+opt.softtabstop = 2
 
-vim.opt.so = 10
-vim.opt.mouse = "a"
+opt.so = 10
+opt.mouse = "a"
 
-vim.opt.textwidth = 80
-vim.opt.showmatch = true
-vim.opt.syntax = "on"
+opt.textwidth = 80
+opt.showmatch = true
+opt.syntax = "on"
 
-vim.opt.wildmenu = true
+opt.wildmenu = true
 
-vim.opt.incsearch = true
-vim.opt.hlsearch = true
-vim.opt.cursorline = true
+opt.incsearch = true
+opt.hlsearch = true
+opt.cursorline = true
 
-vim.opt.listchars = {eol = '$', tab = '▸ ', trail = '·'}
+opt.list = true
+opt.listchars:append {eol = '$', tab = '▸ ', trail = '·'}
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -37,8 +39,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-vim.opt.rtp:prepend(lazypath)
+opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 require("keybindings")
-
