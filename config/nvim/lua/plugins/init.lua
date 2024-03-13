@@ -154,6 +154,7 @@ return {
             { "<space>f", "<cmd>Telescope find_files<cr>", desc = "Find file with Telescope" },
             { "<space>F", "<cmd>Telescope live_grep<cr>", desc = "Grep with Telescope" },
             { "<space>d", "<cmd>Telescope lsp_definitions<cr>", desc = "Find Definition with Telescope" },
+            { "<space>o", "<cmd>Telescope oldfiles<cr>", desc = "Find recently open files with Telescope" },
             { "<space>g", desc = "Git visualization with Telescope" },
             { "<space>gC", "<cmd>Telescope git_commits<cr>", desc = "List Commits with Telescope" },
             { "<space>gc", "<cmd>Telescope git_bcommits<cr>", desc = "List Commits of the buffer with Telescope" },
