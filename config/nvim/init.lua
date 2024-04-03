@@ -6,6 +6,7 @@ local opts = { noremap = true, silent = true }
 opt.nu = true
 opt.autoindent = true
 opt.expandtab = true
+opt.autoread = true
 
 opt.shiftwidth = 2
 opt.smartindent = true

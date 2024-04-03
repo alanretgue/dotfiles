@@ -168,6 +168,7 @@ return {
             { "<space>d", "<cmd>Telescope lsp_definitions<cr>", desc = "Find Definition with Telescope" },
             { "<space>i", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Find Implementations with Telescope" },
             { "<space>o", "<cmd>Telescope oldfiles<cr>", desc = "Find recently open files with Telescope" },
+            { "<C-f>", "<cmd>Telescope grep_string<cr>", desc = "Find recently open files with Telescope" },
             { "<space><tab>", "<cmd>Telescope buffers<cr>", desc = "Opened buffers with Telescope" },
             { "<space>c", "<cmd>Telescope resume<cr>", desc = "Resume the preview search with Telescope" },
             { "<space>gC", "<cmd>Telescope git_commits<cr>", desc = "List Commits with Telescope" },
@@ -200,6 +201,15 @@ return {
           { "<space>t7", '<Cmd>BufferGoto 7<CR>', desc= "Go to Tab 7" },
           { "<space>t8", '<Cmd>BufferGoto 8<CR>', desc= "Go to Tab 8" },
           { "<space>t9", '<Cmd>BufferGoto 9<CR>', desc= "Go to Tab 9" },
+          { "<A-&>", '<Cmd>BufferGoto 1<CR>', desc= "Go to Tab 1" },
+          { "<A-é>", '<Cmd>BufferGoto 2<CR>', desc= "Go to Tab 2" },
+          { "<A-\">", '<Cmd>BufferGoto 3<CR>', desc= "Go to Tab 3" },
+          { "<A-'>", '<Cmd>BufferGoto 4<CR>', desc= "Go to Tab 4" },
+          { "<A-(>", '<Cmd>BufferGoto 5<CR>', desc= "Go to Tab 5" },
+          { "<A-->", '<Cmd>BufferGoto 6<CR>', desc= "Go to Tab 6" },
+          { "<A-è>", '<Cmd>BufferGoto 7<CR>', desc= "Go to Tab 7" },
+          { "<A-_>", '<Cmd>BufferGoto 8<CR>', desc= "Go to Tab 8" },
+          { "<A-ç>", '<Cmd>BufferGoto 9<CR>', desc= "Go to Tab 9" },
           { "<space>tl", '<Cmd>BufferLast<CR>', desc= "Go to Last Tab" },
           { "<space>tC", '<Cmd>BufferCloseAllButCurrent<CR>', desc= "Close all Tab" },
           { "<space>tc", '<Cmd>BufferClose<CR>', desc= "Close Tab" },
@@ -280,6 +290,8 @@ return {
         keys = {
             { "<space>gd", "<cmd>Gitsigns preview_hunk<cr>", desc = "git diff of the block" },
             { "<space>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "git diff of the block" },
+            { "<space>gn", "<cmd>Gitsigns next_hunk<cr>", desc = "Go to the next not staged hunk" },
+            { "<space>gp", "<cmd>Gitsigns prev_hunk<cr>", desc = "Go to the previous not staged hunk" },
         },
         config = function()
             require('gitsigns').setup({
