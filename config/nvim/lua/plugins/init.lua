@@ -233,13 +233,6 @@ return {
             { "<space>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status with Telescope" },
         },
         config = function()
-          extensions = {
-            ["ui-select"] = {
-              require("telescope.themes").get_dropdown {
-                -- even more opts
-              }
-            }
-          }
           require("telescope").load_extension("ui-select")
         end,
     },
