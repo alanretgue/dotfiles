@@ -1,12 +1,17 @@
 return {
     -- the colorscheme should be available when starting Neovim
     {
-        "tanvirtin/monokai.nvim",
+        "ellisonleao/gruvbox.nvim",
+        -- "tanvirtin/monokai.nvim",
+        -- "rebelot/kanagawa.nvim",
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- load the colorscheme here
-            vim.cmd([[colorscheme monokai]])
+            vim.o.background = "dark" -- or "light" for light mode
+            vim.cmd([[colorscheme gruvbox]])
+            -- vim.cmd([[colorscheme kanagawa-dragon]])
+            --vim.cmd([[colorscheme monokai]])
         end,
     },
     {
@@ -161,16 +166,13 @@ return {
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").register({
-                t = { name = "Tab" },
-                D = { name = "LSP Diagnostic" },
-                g = { name = "Git" },
-                n = { name = "Tree selector" },
-                T = { name = "Spawn new Terminal" },
-                s = { name = "TODO Search" },
-            },
-            {
-                prefix = "<space>",
+            require("which-key").add({
+                {"<space>t", desc = "Tab" },
+                {"<space>D", desc = "LSP Diagnostic" },
+                {"<space>g", desc = "Git" },
+                {"<space>n", desc = "Tree selector" },
+                {"<space>T", desc = "Spawn new Terminal" },
+                {"<space>s", desc = "TODO Search" },
             })
             require("which-key").setup({
                 icons = {
@@ -178,6 +180,7 @@ return {
                     separator = "➜ ", -- symbol used between a key and it's label
                     group = "# ", -- symbol prepended to a group
                 },
+                preset = "modern",
             })
         end,
     },
